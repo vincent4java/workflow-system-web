@@ -25,14 +25,15 @@ public class Xf9SystemAction {
 	private IXf9SystemService xf9SystemService; 
 	
 
-	@RequestMapping(value = "/register/{name}/{userCode}/{userName}/{userPwd}",method = RequestMethod.GET)
-	public String register(@PathVariable String name,@PathVariable String userCode,@PathVariable String userName,@PathVariable String userPwd){
+	@RequestMapping(value = "/register/{name}/{userCode}/{userName}/{userPwd}/{systemCode}",method = RequestMethod.GET)
+	public String register(@PathVariable String name,@PathVariable String userCode,@PathVariable String userName,@PathVariable String userPwd,@PathVariable String systemCode){
 		Xf9System system = new Xf9System();
 		system.setDescription("");
 		system.setName(name);
 		system.setStatus(0);
 		system.setUserCode(userCode);
 		system.setUserName(userName);
+		system.setSystemCode(systemCode);
 		system.setUserPwd(MD5Utils.md5SaltMd5(userPwd, userCode));
 		try {
 			int n =xf9SystemService.insertXf9System(system);
