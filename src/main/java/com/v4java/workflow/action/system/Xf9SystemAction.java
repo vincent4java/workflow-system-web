@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.v4java.enumerate.MD5Utils;
 import com.v4java.workflow.pojo.Xf9System;
@@ -26,7 +27,7 @@ public class Xf9SystemAction {
 	
 
 	@RequestMapping(value = "/register/{name}/{userCode}/{userName}/{userPwd}/{systemCode}",method = RequestMethod.GET)
-	public String register(@PathVariable String name,@PathVariable String userCode,@PathVariable String userName,@PathVariable String userPwd,@PathVariable String systemCode){
+	public @ResponseBody int register(@PathVariable String name,@PathVariable String userCode,@PathVariable String userName,@PathVariable String userPwd,@PathVariable String systemCode){
 		Xf9System system = new Xf9System();
 		system.setDescription("");
 		system.setName(name);
@@ -35,13 +36,13 @@ public class Xf9SystemAction {
 		system.setUserName(userName);
 		system.setSystemCode(systemCode);
 		system.setUserPwd(MD5Utils.md5SaltMd5(userPwd, userCode));
+		int n = -1;
 		try {
-			int n =xf9SystemService.insertXf9System(system);
-			// TODO Auto-generated catch block
+			 n =xf9SystemService.insertXf9System(system);
 		} catch (Exception e) {
 			LOGGER.error("注册系统失败"+name, e);
 		}
-		return null;
+		return n;
 		
 	}
 }
