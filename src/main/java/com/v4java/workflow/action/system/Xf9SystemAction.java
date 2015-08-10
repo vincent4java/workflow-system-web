@@ -15,7 +15,6 @@ import com.v4java.workflow.pojo.Xf9System;
 import com.v4java.workflow.redis.util.JedisUtil;
 import com.v4java.workflow.service.system.IXf9SystemService;
 
-
 @Controller
 @Scope("prototype")
 @RequestMapping("/xf9System")

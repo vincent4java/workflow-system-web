@@ -12,14 +12,9 @@
   <artifactId>workflow-system-web</artifactId>
   <packaging>war</packaging>
   <name>workflow-system-web Maven Webapp</name>
-  <url>http://maven.apache.org</url>
   
 	<dependencies>
 		<!-- 工具包 -->
-		<dependency>
-			<groupId>com.vincent</groupId>
-			<artifactId>v4java-web-utils</artifactId>
-		</dependency>
 		<!-- -->
 		<dependency>
 			<groupId>com.v4java</groupId>
