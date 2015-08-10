@@ -21,7 +21,19 @@
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
-
+	<!-- 拦截器 -->
+	<bean id="loginInterceptor" class="com.v4java.workflow.interceptor.LoginInterceptor"/>
+	<!-- 拦截器 -->
+	 <!--拦截栈  -->
+	<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"> -->
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="loginInterceptor" />
+			</list>
+		</property>
+	</bean>
+	
 
 
 	<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
