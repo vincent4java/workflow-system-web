@@ -85,16 +85,15 @@
 					data-side-pagination="server" data-pagination="true" data-page-list="[10, 20, 50]" data-search="false">
 						   <thead>
 						    <tr>
-						    
-						    <th data-field="systemCode" data-align="center" >系统code</th>
-					        <th data-field="name" data-align="center" >名称</th>
-					        <th data-field="userName" data-align="center" >登陆用户名</th>
-					        <th data-field="userCode" data-align="center" >登陆用户code</th>
-					        <th data-field=description data-align="center" >描述</th>
-					        <th data-field="statusName" data-align="center" class="col-md-1 status">是否可用</th>
+						    <th data-field="systemCode" data-align="center" class="data-input" >系统code</th>
+					        <th data-field="name" data-align="center" class="data-input"  >名称</th>
+					        <th data-field="userName" data-align="center" class="data-input"  >登陆用户名</th>
+					        <th data-field="userCode" data-align="center" class="data-input"  >登陆用户code</th>
+					        <th data-field="description" data-align="center" class="data-input"  >描述</th>
+					        <th data-field="statusName" data-align="center" data-input="statusName" class="col-md-1 status">是否可用</th>
 					        <th data-field="createTimeName" data-align="center" >创建时间</th>
 					        <th data-field="updateTimeName" data-align="center" >最近修改时间</th>
-					        <th data-field="operation" data-align="center" class="col-md-2">操作</th>
+					        <th data-field="operation" data-align="center" class="col-md-4">操作</th>
    						 	</tr>	
    						 	</thead>
 					</table>

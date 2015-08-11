@@ -84,8 +84,8 @@ public class Xf9SystemAction {
 				op.append("type=\"button\" op-url=\"/xf9System/updateXf9SystemStatus.do\" class=\"btn btn-warning btn-flat\">");
 				op.append(AdminConst.OP_STATUS_NAME[xf9SystemVO.getStatus()]);
 				op.append("</button>");
-/*				op.append("<a href=\"/jobsUser/findJobsUser/"+xf9SystemVO.getId()+".do\""+" class=\"btn btn-warning btn-flat\">修改");
-				op.append("</a>");*/
+				op.append("<button name=\"update\" data-id=\""+xf9SystemVO.getId()+"\" op-url=\"/xf9System/updateXf9System.do\" class=\"btn btn-warning btn-flat\">修改");
+				op.append("</button>");
 				xf9SystemVO.setOperation(op.toString());
 				op = null;
 			}
@@ -126,5 +126,27 @@ public class Xf9SystemAction {
 		return updateStatus;
 	}
 	
+	
+	/**
+	 * 更改系统状态
+	 * @return
+	 */
+	@RequestMapping(value = "/updateXf9System",method = RequestMethod.POST)
+	public @ResponseBody UpdateStatus updateXf9System(@RequestBody Xf9System xf9System){
+		UpdateStatus updateStatus = new UpdateStatus();
+		try {
+			int n  = xf9SystemService.updateXf9System(xf9System);
+			updateStatus.setIsSuccess(n);
+			if (n==1) {
+				updateStatus.setMsg("修改系统成功");
+			}else {
+				updateStatus.setMsg("修改系统失败");
+			}
+		} catch (Exception e) {
+			LOGGER.error("更改系统状态错误", e);
+		}
+		
+		return updateStatus;
+	}
 }
 
