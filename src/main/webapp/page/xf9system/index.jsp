@@ -88,7 +88,7 @@
 						    <th data-field="systemCode" data-align="center" class="data-input" >系统code</th>
 					        <th data-field="name" data-align="center" class="data-input"  >名称</th>
 					        <th data-field="userName" data-align="center" class="data-input"  >登陆用户名</th>
-					        <th data-field="userCode" data-align="center" class="data-input"  >登陆用户code</th>
+					        <th data-field="userCode" data-align="center"   >登陆用户code</th>
 					        <th data-field="description" data-align="center" class="data-input"  >描述</th>
 					        <th data-field="statusName" data-align="center" data-input="statusName" class="col-md-1 status">是否可用</th>
 					        <th data-field="createTimeName" data-align="center" >创建时间</th>
@@ -110,7 +110,7 @@
 			                <form role="form" action="/xf9System/register.do" method="post">
 			                  <div class="box-body">
 			                    <div class="form-group">
-			                      <label for="">系统名称</label>
+			                      <label for="">系统code/label>
 			                      <input type="text" class="form-control" name="systemCode" placeholder="系统code">
 			                    </div>
 			                    <div class="form-group">

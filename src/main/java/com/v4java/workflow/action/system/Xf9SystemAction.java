@@ -11,13 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.alibaba.fastjson.JSON;
 import com.v4java.enumerate.MD5Utils;
 import com.v4java.utils.DateUtil;
 import com.v4java.workflow.constant.AdminConst;
 import com.v4java.workflow.pojo.Xf9System;
 import com.v4java.workflow.query.system.Xf9SystemQuery;
-import com.v4java.workflow.redis.util.JedisUtil;
 import com.v4java.workflow.service.system.IXf9SystemService;
 import com.v4java.workflow.vo.BTables;
 import com.v4java.workflow.vo.UpdateStatus;
@@ -41,9 +39,9 @@ public class Xf9SystemAction {
 		int n = -1;
 		try {
 			 n =xf9SystemService.insertXf9System(xf9System);
-			 if (n==1) {
+	/*		 if (n==1) {
 				JedisUtil.getInstance().hset("system:"+xf9System.getUserCode(), "ObJson", JSON.toJSONString(xf9System));
-			}
+			}*/
 		} catch (Exception e) {
 			LOGGER.error("注册系统失败"+xf9System.getName(), e);
 		}
